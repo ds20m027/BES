@@ -740,7 +740,10 @@ static int compare_name(const char * file_name,const char * compstring){
     if ((file_name == NULL) || (compstring == NULL)) {exit (EXIT_FAILURE);}
 
     char *_name_file_name = strdup(file_name);
-        
+	/*
+	 * ### FB_RZ: hier sollte FNM_NOESCAPE als 3. Parameter stehen um \ im Namen
+	 *            als ein normales Zeichen zu interpretieren.
+	 */
     _result = fnmatch(compstring, basename(_name_file_name), 0);
 
     if ((_result != 0) && (_result != FNM_NOMATCH)) {
