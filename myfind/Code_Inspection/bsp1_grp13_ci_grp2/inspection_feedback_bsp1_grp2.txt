@@ -1,0 +1,15 @@
+Review Kommentare Rainhardt Gabriel & Magdalena Andrae an Gruppe 13 : Kommentare sind mit ### FB markiert und wurden in Englisch gehalten.
+Die Implementierung des Parameter checks fanden wir beide gut, wobei die Verschachtelungstiefe beim reviewen teils zu Irrtümern geführt hat. Vielleicht könnte man hier Teile in Unterfunktionen auslagern.
+Auf die Unterscheidung zwischen falschen Parametern und falschen Optionen wurde nicht wirklich eingegangen. Die Usage-Meldung könnte außerdem in eine Funktion ausgelagert werden.
+Es wird auch nicht zwischen falschem Aufruf und richtigem Aufruf mit falschem Parameter unterschieden, und deshalb immer die Usage-Meldung gedruckt, was die eigentliche Rückgabeinformation unter Umständen beeinträchtigen könnte.
+Das Fehlerhandling in -nouser aber auch in anderen funktionsaufrufen ist unzureichend, aber da wir erfahren haben, dass ihr mittlerweile auch nur noch zu Zweit seid, dürfte es daran gelegen haben.
+Die Funktion die ihr für den -type filter verwendet, hättet ihr für -ls auch verwenden können, dies ist aber nur eine Anmerkung und kein Fehler, da euer Programm den simple test besteht.
+Eine mögliche Implementierung findet ihr in dem zugehörigen Feedback-Kommentar.
+Teilweise waren wenig Kommentare vorhanden, und manche davon waren unklar. Eine Abkürzung im Kommentar ist eher ein Hindernis als eine Hilfe zu verstehen, was das entsprechende Code-Segment machen soll.
+Der Code ist gut strukturiert und einfach lesbar, auch wenn manche else if Operationen über Ternary-Operator in einer Zeile gehalten werden hätten können. Auch das jedoch ist Ansichtssache.
+Vielleicht hätte euch eine print_error funktion daran erinnert den errno Wert auch tatsächlich zu lesen und dem User mitzuteilen. Teilweise fehlen diese Angaben und teilweise sind sie vorhanden.
+Außerdem hat uns stdout vor beenden des Programms zu leeren, sodass andere Programme nicht mit Ausgaberesten konfrontiert sind, die dort aus irgendeinem Grund verblieben wären, 
+als Idee sehr viel gelehrt und dafür bedanken wir uns.
+
+Mit besten Gruessen
+Magdalena Andrae und Rainhardt Gabriel
