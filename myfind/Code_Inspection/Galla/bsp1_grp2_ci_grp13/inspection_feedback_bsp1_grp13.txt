@@ -1,0 +1,6 @@
+Review Kommentare Ralf Ziefuhs an Gruppe 2: Kommentare im File sind mit ### FB_RZ: markiert.
+Der Testlauf funktioniert bis auf Test failed: The output for "/var/tmp/test-find/simple/file\with\escape\character -name \'file\with\escape\character\' " is wrong.
+Es wurde malloc verwendet, wobei jedoch nicht 100% alles wieder freigegeben wird.
+Der Code ist gut auskommentiert und es wird mit sehr vielen Funktionen gearbeitet.
+Der Code ist strukturiert, aber teilweise schwierig zu lesen z.B. Ternary und if Bedingungen.
+Durchwegs umfangreiche Fehlerbehandlung.
