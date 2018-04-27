@@ -1,0 +1,14 @@
+Review Kommentare Thomas M. Galla an Gruppe 13
+Datum: Mon Apr 16 17:59:33 CEST 2018
+
+Meine Kommentare in Ihrem kommentieren File sind mit ### FB_TMG: markiert.
+Die Punkte des Feedbacks sind als [-1] bzw. [+2] markiert.
+
+Sie haben 0 Fehler gefunden, die ich uebersehen habe. [+0]
+Sie haben 12 Fehler nicht gefunden. [-12]
+
+
+Beurteilung
+~~~~~~~~~~~
+
+Sie erhalten für diese Code Inspection 18 von 30 geplanten Punkten.
