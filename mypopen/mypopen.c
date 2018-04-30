@@ -7,7 +7,7 @@
 FILE* mypopen(const char* command, const char* type) {
 	
 	int pipefd[2];
-	int new_pipefd[2];
+	int copy_pipefd[2];
 	pid_t cpid;
 	char buf;
 
@@ -27,13 +27,14 @@ FILE* mypopen(const char* command, const char* type) {
 	}
 
 	if (cpid == 0) {    /* Child*/
-		dup2(pipefd, new_pipefd); /* Creates copy pipefd to new_pipefd */
+		dup2(pipefd[0], copy_pipefd[0]); /* Creates copy pipefd to new_pipefd */
+		dup2(pipefd[1], copy_pipefd[1]);
 
-		if (strcmp(*type, 'r') == 0) {
+		if (strcmp(type, "r") == 0) {
 			close(pipefd[1]);	/* Close unused write end */
 		}
 
-		if (strcmp(*type, 'w') == 0) {
+		if (strcmp(type, "w") == 0) {
 			close(pipefd[0]);	/* Close unused read end */
 		}
 
@@ -51,13 +52,13 @@ FILE* mypopen(const char* command, const char* type) {
 		exit(EXIT_SUCCESS);
 
 	}
-	else {            /* Parent */
-		close(pipefd[0]);          /* Close unused read end */
+	/*else {            // Parent /
+		close(pipefd[0]);          // Close unused read end /
 		write(pipefd[1], argv[1], strlen(argv[1]));
-		close(pipefd[1]);          /* Reader will see EOF */
-		wait(NULL);                /* Wait for child */
-		exit(EXIT_SUCCESS);
-	}
+		close(pipefd[1]);          // Reader will see EOF 
+		wait(NULL);                // Wait for child /
+		exit(EXIT_SUCCESS);/
+	}*/
 }
 
 int mypclose(FILE* stream) {
