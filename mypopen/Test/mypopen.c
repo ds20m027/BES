@@ -1,7 +1,7 @@
 /**
 * @file mypopen.c
 * Betriebssysteme Beispiel 2
-* mypopen - vereinfachte Version der Linux Funktionen "popen und pclose"
+* mypopen - ein Clone der Linux Funktionen "popen und pclose"
 *
 * @author Ralf Ziefuhs <ic17b065@technikum-wien.at>
 * @author Clemens Fritzsche <ic17b087@technikum-wien.at>
@@ -20,6 +20,9 @@
 #include <unistd.h>
 #include <sys/wait.h>
 #include <errno.h>
+#include <sys/types.h>
+#include <string.h>
+#include <stdlib.h>
 /*
 * --------------------------------------------------------------- defines --
 */
@@ -98,8 +101,6 @@ FILE* mypopen(const char* command, const char* type) {
 int mypclose(FILE* stream) {
 	pid_t wait_pid;
 }
-
-
 
 // =================================================================== eof ==
 

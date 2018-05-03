@@ -1,7 +1,7 @@
 /**
 * @file mypopen.c
 * Betriebssysteme Beispiel 2
-* mypopen - vereinfachte Version der Linux Funktionen "popen und pclose"
+* mypopen - ein Clone der Linux Funktionen "popen und pclose"
 *
 * @author Ralf Ziefuhs <ic17b065@technikum-wien.at>
 * @author Clemens Fritzsche <ic17b087@technikum-wien.at>
@@ -20,6 +20,9 @@
 #include <unistd.h>
 #include <sys/wait.h>
 #include <errno.h>
+#include <sys/types.h>
+#include <string.h>
+#include <stdlib.h>
 /*
 * --------------------------------------------------------------- defines --
 */
@@ -31,13 +34,21 @@
 */
 
 /**
-* \brief initiate a pipe stream to or from a process
+* \brief popen clone
 *
-* \param command the command to be executed
-* \param type the mode for I / O (r or w)
+* This function creates a child process executing the command given in
+* \a cmd, opens a unnamed pipe, redirects stdin (if \a type is equal
+* to "w") or stdout (if \a type is equal to "r") of the child
+* process to the pipe and returns a file pointer to the pipe end, that
+* is not used by the child process to the caller.
 *
-* \return a file pointer or NULL in case of error
+* \param command command to execute in the context of the child process
+* \param type "r" or "w" depending on whether the parent process
+*        intends to read from or write to the pipe.
+*
+* \return file pointer to the parent's pipe end or NULL in case of an error
 */
+
 FILE* mypopen(const char* command, const char* type) {
 	
 	int pipefd[2];
@@ -95,11 +106,22 @@ FILE* mypopen(const char* command, const char* type) {
 	}*/
 }
 
+
+
+/**
+* \brief pclose clone
+*
+* This function closes the pipe, waits for the child process to exit
+* and retrieves and returns the exit status of the child.
+*
+* \param stream file pointer to parent's pipe end
+*
+* \return exit status of child process or -1 in case of an error
+*/
+
 int mypclose(FILE* stream) {
 	pid_t wait_pid;
 }
-
-
 
 // =================================================================== eof ==
 

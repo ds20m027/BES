@@ -38,14 +38,21 @@ EXCLUDE_PATTERN=footrulewidth
 ## --------------------------------------------------------------- targets --
 ##
 
-all: mypopen
+.PHONY: all
+all: popentest test-pipe 
 
-mypopen: $(OBJECTS)
-	$(CC) $(CFLAGS) -o $@ $^
+popentest: $(OBJECTS) 
+	$(CC) $(CFLAGS) -o $@ $^ -lpopentest -ldl
 
+test-pipe: $(OBJECTS) 
+	$(CC) $(CFLAGS) -o $@ $^ -ltest-pipe
+
+.PHONY: clean
 clean:
-	$(RM) *.o *~ mypopen
+	$(RM) -f *.o *~ popentest
+	$(RM) -f *.o *~ test-pipe	
 
+.PHONY: distclean
 distclean: clean
 	$(RM) -r doc
 
