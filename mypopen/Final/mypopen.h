@@ -20,12 +20,3 @@ FILE *mypopen(const char *command, const char *type);
 int mypclose(FILE *stream);
 
 #endif /* _MYPOPEN_H_ */
-
-// =================================================================== eof ==
-
-// Local Variables:
-// mode: c
-// c-mode: k&r
-// c-basic-offset: 8
-// indent-tabs-mode: t
-// End:

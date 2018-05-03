@@ -37,6 +37,7 @@
 /*
 * -------------------------------------------------------------- typedefs --
 */
+// ### FB BP: #include <stdbool.h> verwenden.
 enum Bool{ FALSE, TRUE };
 /*
 * ------------------------------------------------------------- functions --
@@ -73,6 +74,7 @@ int main(int argc, const char const *argv[])
 		//if wrong then EXIT
 		if (do_check_parms(argv) == ERROR)
 		{
+// ### FB BP: copy-paste ....
 			fprintf(stderr, "Usage: %s\t<file or directory> [ <test-aktion> ] ...\n"
 				"-user <name/uid>\n"
 				"-name <pattern>\n"
@@ -103,6 +105,7 @@ int main(int argc, const char const *argv[])
 		exit(EXIT_FAILURE);
 	}
 
+// ### FB BP: fflush(stdout) inkl. Fehlerbehandlung - sehr löblich [+2]
 	if (fflush(stdout) == EOF) //flushes the stdout buffer
 	{
 		fprintf(stderr, "%s Unable to flush stdout: \n", strerror(errno));
@@ -192,6 +195,7 @@ static void do_file(const char *file_name, const char * const * parms, const int
 			continue;
 			
 		}
+// ### FB BP: Ein "assert(0);" wäre hier cool.
 	}
 
 	//do_print() if the file is not printed until now and the check was successful
@@ -323,6 +327,10 @@ static int do_print(const char * file_name, const char * const * parms)
 static int do_check_parms(const char * const * parms)
 {
 	int offset = 2;
+/* ### FB BP: Wenn die Definition 
+	const char * const * cur_Arg = parms + offset;
+              wäre, ist der Type-cast überflüssig.
+*/
 	char ** cur_Arg = (char **) (parms + offset);
 		
 		//runs as long as there are prompted parameters/arguments
@@ -335,6 +343,23 @@ static int do_check_parms(const char * const * parms)
 				strcmp(*cur_Arg, "-path") == 0)
 			{
 				if (*(cur_Arg + 1) == NULL ||
+/* ### FB BP: Die folgenden Checks verhindern, nach Directoryeinträgen zu suchen,
+              die wie Optionen auschauen. [-2]
+----  snip  ----
+{178}find /var/tmp/test-find/simple -name -name
+/var/tmp/test-find/simple/-name
+{179}./myfind /var/tmp/test-find/simple -name -name
+./myfind: missing additional parameters `-name'
+Usage: ./myfind	<file or directory> [ <test-aktion> ] ...
+-user <name/uid>
+-name <pattern>
+-type [bcdpfls]
+-print
+-ls
+-nouser
+-path <pattern>
+----  snip  ----
+*/
 					strcmp(*(cur_Arg + 1), "-user") == 0 ||
 					strcmp(*(cur_Arg + 1), "-name") == 0 ||
 					strcmp(*(cur_Arg + 1), "-type") == 0 ||
@@ -355,7 +380,7 @@ static int do_check_parms(const char * const * parms)
 					char * p_end;
 
 					struct stat buf;
-					
+// ### FB BP: Was soll das hier?
 					if (lstat(*(parms + 1), &buf) == -1)
 					{
 						fprintf(stderr, "%s: `%s' %s\n", *parms, *(parms + 1), strerror(errno));
@@ -382,7 +407,9 @@ static int do_check_parms(const char * const * parms)
 					{
 						//conversion into long int
 						uid = strtol(*(cur_Arg + 1), &p_end, 10);
-
+/* ### FB BP: Da fehlt noch der Check auf errno == ERANGE a la 
+						if (errno == ERANGE && (uid == LONG_MAX || uid == LONG_MIN))
+*/
 						if (uid == LONG_MAX || uid == LONG_MIN)
 						{
 							fprintf(stderr, "%s: error overflow when trying to parse -user %s\n", *parms, *(cur_Arg + 1));
@@ -396,11 +423,14 @@ static int do_check_parms(const char * const * parms)
 								return SUCCESS;
 							}
 						}
+// ### FB BP: else-Zweig mit Fehlerbehandlung?
 					}
 				}
 				
 				if (strcmp(*cur_Arg, "-type") == 0)
 				{
+// ### FB BP: strcmp() liefert keinen booleschen Wert und sollte damit so nicht verwendet werden [-1]
+//            -> https://cis.technikum-wien.at/documents/bic/2/bes/semesterplan/lu/c-rules.html#logic-operators-only-for-logic-operands
 					if (strcmp(*(cur_Arg + 1), "b") && strcmp(*(cur_Arg + 1), "c") &&
 						strcmp(*(cur_Arg + 1), "d") && strcmp(*(cur_Arg + 1), "p") &&
 						strcmp(*(cur_Arg + 1), "f") && strcmp(*(cur_Arg + 1), "l") &&
@@ -453,7 +483,7 @@ static int do_user(const struct stat buffer, const char * const * parms, const i
 	
 	signed long uid = 0;
 	char * p_end;
-	
+// ### FB BP: Hmm, gier ist der komplette Check von weiter oben nochmal implementiert. Warum dieses?
 	const struct passwd *pwd_entry = getpwnam(*(parms + offset));
 
 	if (errno != 0)
@@ -475,6 +505,9 @@ static int do_user(const struct stat buffer, const char * const * parms, const i
 		//conversion into long int
 		uid = strtol(*(parms + offset), &p_end, 10);
 
+/* ### FB BP: Da fehlt noch der Check auf errno == ERANGE a la 
+		if (errno == ERANGE && (uid == LONG_MAX || uid == LONG_MIN))
+*/
 		if (uid == LONG_MAX || uid == LONG_MIN)
 		{
 			fprintf(stderr, "%s: error overflow when trying to parse -user %s\n", *parms, *(parms + offset));
@@ -595,11 +628,15 @@ static int do_ls(const struct stat buffer, const char * file_name, const char * 
 	struct passwd* user;
 	struct group* group;
 	struct tm* time;
-	
+/* ### FB BP: { und } überflüssig.
+	char mode[] = "----------";
+ */
 	char mode[] = { "----------" };
 	char month[10];
+// ### FB BP: user_name ist ein Pointer und sollte mit NULL initialisiert werden.
 	char* user_name = "\0";
 	char uid[13];
+// ### FB BP: group_name ist ein Pointer und sollte mit NULL initialisiert werden.
 	char* group_name = "\0";
 	char gid[13];
 	char time_disp[13] = { 0 }; //for 0 termination
@@ -619,12 +656,14 @@ static int do_ls(const struct stat buffer, const char * file_name, const char * 
 		case S_IFBLK:	//block device 
 			mode[0] = 'b';	break;
 		case S_IFIFO:	//FIFO
+// ### FB BP: Das sollte 'p' hier sein. [-1]
 			mode[0] = 'f';	break;
 		case S_IFLNK:	//symbolic link 
 			mode[0] = 'l';	break;
 		case S_IFSOCK:	//socket
 			mode[0] = 's'; 	break;
 		default:		//default
+// ### FB BP: Nice!
 			mode[0] = '?'; 	break;
 	}
 
@@ -670,6 +709,7 @@ static int do_ls(const struct stat buffer, const char * file_name, const char * 
 	{
 		blocks = (unsigned long)buffer.st_blocks;
 		
+// ### FB BP: POSIXLY_CORRECT wird korrekt behandelt [+2]
 		if (getenv("POSIXLY_CORRECT") == NULL)
 		{
 			blocks = ((unsigned long)buffer.st_blocks / 2 + buffer.st_blocks % 2);
@@ -721,18 +761,22 @@ static int do_ls(const struct stat buffer, const char * file_name, const char * 
 	time = localtime(&(buffer.st_mtime));
 	strftime(month, sizeof(month), "%b", time);
 
+// ### FB BP: Fehlercheck bei sprintf(3) falsch - sprintf() liefert (immer) die Länge des erzeugten Strings,
+//            falls der Buffer groß genug gewesen wäre. [-2]
 	if (sprintf(time_disp, "%s %2d %02d:%02d", month, time->tm_mday, time->tm_hour, time->tm_min) < 0)
 	{
 		fprintf(stderr, "%s: unable to create string", *parms);
 	}
 	
 
+// ### FB BP: 1 Byte zuwenig (für das folgende strcpy(3))
 	char file_string[strlen(file_name)];
 
 	if (mode[0] != 'l')
 	{
 		strcpy(file_string, file_name);
 	}
+// ### FB BP: Unnützes "if (mode[0] == 'l')", oder?
 	else if (mode[0] == 'l')
 	{
 		char linkbuf[buffer.st_size + 1]; //VLA
@@ -747,10 +791,12 @@ static int do_ls(const struct stat buffer, const char * file_name, const char * 
 		else
 		{
 			linkbuf[buffer.st_size] = '\0';
+// ### FB BP: Autsch, linkbuf wird nirgends ausgegeben und verschwindet hier. [-1]
 		}
 
 	}
-	
+// ### FB BP: Autsch, bei Symlinks ist file_string hier nicht initialisiert. Probieren Sie mal `./myfind /var/tmp/test-find/simple  -type l -ls`
+
 	if (fprintf(stdout, "%6ld %4ld %s %3d %s %s %8ld %s %s\n", buffer.st_ino, blocks, mode, buffer.st_nlink, user_name, group_name, buffer.st_size, time_disp, file_string) < 0)
 	{
 		fprintf(stderr, "%s:  error %s", *parms, file_name);
@@ -776,6 +822,7 @@ static int do_ls(const struct stat buffer, const char * file_name, const char * 
 */
 static int do_type(const struct stat buffer, const char * const* parms, const int offset)
 {
+// ### FB BP: unnütze Initialisierung.
 	char type_char = '-';
 
 	//check type char of file_name

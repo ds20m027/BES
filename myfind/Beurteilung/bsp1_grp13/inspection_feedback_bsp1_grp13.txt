@@ -1,0 +1,198 @@
+Review Kommentare Bernd Petrovitsch an Gruppe 13
+Datum: Sat Apr 14 19:45:58 CEST 2018
+
+Meine Kommentare in Ihrem kommentieren File sind mit ### FB BP: markiert.
+
+Was mir gut gefallen hat
+~~~~~~~~~~~~~~~~~~~~~~~~
+`test-find.sh -c -q` liefert u.a.
+----  snip  ----
+test-find.sh: Using to-be-tested binary "./myfind"
+test-find.sh: Using known-correct reference binary "/usr/local/bin/bic-myfind"
+test-find.sh: Using directory hierarchy under "/var/tmp/test-find/simple"
+25659: old priority 0, new priority 19
+----- Test 0.0: Test command line parameters - unknown options ----
+----- Test 0.1: Test command line parameters - superfluous options ----
+----- Test 0.2: Test command line parameters with a missing parameter ----
+----- Test 0.3: Test command line parameters with a wrong parameter ----
+----- Test 1.0: Test with simple and single files ----
+----- Test 2.0: Test with simple and single files with two options ----
+----- Test 3.0: Test with simple and single files with two output-only options and three all of them ----
+----- Test 4.0: Test the whole simple directory ----
+--- /home/bernd/.tmp/known-correct-sorted-find-stdout.PkvjnKV0KA	2018-04-22 09:26:07.890732404 +0200
++++ /home/bernd/.tmp/to-be-tested-sorted-find-stdout.UzfyKkYFZt	2018-04-22 09:26:07.918732390 +0200
+@@ -631 +631 @@
+-    67    0 lrwxrwxrwx   1 root     root           21 Mar  4 21:59 /var/tmp/test-find/simple/dangling-sym-link -> this-should-not-exist
++    67    0 lrwxrwxrwx   1 root root       21 Mar  4 21:59 ﾘ鄙
+@@ -642 +642 @@
+-    68    0 lrwxrwxrwx   1 root     root           10 Mar  4 21:59 /var/tmp/test-find/simple/working-sym-link -> plain-file
++    68    0 lrwxrwxrwx   1 root root       10 Mar  4 21:59 ﾘ鄙
+@@ -653 +653 @@
+-    69    0 lrwxrwxrwx   1 root     root           10 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-2 -> sym-link-1
++    69    0 lrwxrwxrwx   1 root root       10 Mar  4 21:59 ﾘ鄙
+@@ -664 +664 @@
+-    70    0 lrwxrwxrwx   1 root     root           10 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-3 -> sym-link-2
++    70    0 lrwxrwxrwx   1 root root       10 Mar  4 21:59 ﾘ鄙
+@@ -675 +675 @@
+-    71    0 lrwxrwxrwx   1 root     root           10 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-4 -> sym-link-3
++    71    0 lrwxrwxrwx   1 root root       10 Mar  4 21:59 ﾘ鄙
+@@ -686 +686 @@
+-    72    0 lrwxrwxrwx   1 root     root           10 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-5 -> sym-link-4
++    72    0 lrwxrwxrwx   1 root root       10 Mar  4 21:59 ﾘ鄙
+@@ -697 +697 @@
+-    73    0 lrwxrwxrwx   1 root     root           10 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-6 -> sym-link-5
++    73    0 lrwxrwxrwx   1 root root       10 Mar  4 21:59 ﾘ鄙
+@@ -708 +708 @@
+-    74    0 lrwxrwxrwx   1 root     root           10 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-7 -> sym-link-6
++    74    0 lrwxrwxrwx   1 root root       10 Mar  4 21:59 ﾘ鄙
+@@ -719 +719 @@
+-    75    0 lrwxrwxrwx   1 root     root           10 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-8 -> sym-link-7
++    75    0 lrwxrwxrwx   1 root root       10 Mar  4 21:59 ﾘ鄙
+@@ -730 +730 @@
+-    76    0 lrwxrwxrwx   1 root     root           10 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-9 -> sym-link-8
++    76    0 lrwxrwxrwx   1 root root       10 Mar  4 21:59 ﾘ鄙
+@@ -741 +741 @@
+-    77    0 lrwxrwxrwx   1 root     root           10 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-10 -> sym-link-9
++    77    0 lrwxrwxrwx   1 root root       10 Mar  4 21:59 ﾘ鄙
+@@ -752 +752 @@
+-    78    0 lrwxrwxrwx   1 root     root           11 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-11 -> sym-link-10
++    78    0 lrwxrwxrwx   1 root root       11 Mar  4 21:59 ﾘ鄙
+@@ -763 +763 @@
+-    79    0 lrwxrwxrwx   1 root     root           11 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-12 -> sym-link-11
++    79    0 lrwxrwxrwx   1 root root       11 Mar  4 21:59 ﾘ鄙
+@@ -774 +774 @@
+-    80    0 lrwxrwxrwx   1 root     root           11 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-13 -> sym-link-12
++    80    0 lrwxrwxrwx   1 root root       11 Mar  4 21:59 ﾘ鄙
+@@ -785 +785 @@
+-    81    0 lrwxrwxrwx   1 root     root           11 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-14 -> sym-link-13
++    81    0 lrwxrwxrwx   1 root root       11 Mar  4 21:59 ﾘ鄙
+@@ -796 +796 @@
+-    82    0 lrwxrwxrwx   1 root     root           11 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-15 -> sym-link-14
++    82    0 lrwxrwxrwx   1 root root       11 Mar  4 21:59 ﾘ鄙
+@@ -807 +807 @@
+-    83    0 lrwxrwxrwx   1 root     root           11 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-16 -> sym-link-15
++    83    0 lrwxrwxrwx   1 root root       11 Mar  4 21:59 ﾘ鄙
+@@ -818 +818 @@
+-    84    0 lrwxrwxrwx   1 root     root           11 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-17 -> sym-link-16
++    84    0 lrwxrwxrwx   1 root root       11 Mar  4 21:59 ﾘ鄙
+@@ -829 +829 @@
+-    85    0 lrwxrwxrwx   1 root     root           11 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-18 -> sym-link-17
++    85    0 lrwxrwxrwx   1 root root       11 Mar  4 21:59 ﾘ鄙
+@@ -840 +840 @@
+-    86    0 lrwxrwxrwx   1 root     root           11 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-19 -> sym-link-18
++    86    0 lrwxrwxrwx   1 root root       11 Mar  4 21:59 ﾘ鄙
+@@ -851 +851 @@
+-    87    0 lrwxrwxrwx   1 root     root           11 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-20 -> sym-link-19
++    87    0 lrwxrwxrwx   1 root root       11 Mar  4 21:59 ﾘ鄙
+@@ -862 +862 @@
+-    88    0 lrwxrwxrwx   1 root     root           11 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-21 -> sym-link-20
++    88    0 lrwxrwxrwx   1 root root       11 Mar  4 21:59 ﾘ鄙
+@@ -873 +873 @@
+-    89    0 lrwxrwxrwx   1 root     root           11 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-22 -> sym-link-21
++    89    0 lrwxrwxrwx   1 root root       11 Mar  4 21:59 ﾘ鄙
+@@ -884 +884 @@
+-    90    0 lrwxrwxrwx   1 root     root           10 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-1 -> plain-file
++    90    0 lrwxrwxrwx   1 root root       10 Mar  4 21:59 ﾘ鄙
+@@ -895 +895 @@
+-    91    0 p--S------   1 root     root            0 Mar  4 21:59 /var/tmp/test-find/simple/named-pipe
++    91    0 f--S------   1 root root        0 Mar  4 21:59 /var/tmp/test-find/simple/named-pipe
+@@ -906 +906 @@
+-    92    0 b-----S---   1 root     root              Mar  4 21:59 /var/tmp/test-find/simple/block-device
++    92    0 b-----S---   1 root root        0 Mar  4 21:59 /var/tmp/test-find/simple/block-device
+@@ -917 +917 @@
+-    93    0 c--------T   1 root     root              Mar  4 21:59 /var/tmp/test-find/simple/char-device
++    93    0 c--------T   1 root root        0 Mar  4 21:59 /var/tmp/test-find/simple/char-device
+test-find.sh: Test failed: The output for "/var/tmp/test-find/simple -ls " is wrong.
+--- /home/bernd/.tmp/known-correct-sorted-find-stdout.PkvjnKV0KA	2018-04-22 09:26:07.890732404 +0200
++++ /home/bernd/.tmp/to-be-tested-sorted-find-stdout.UzfyKkYFZt	2018-04-22 09:26:07.918732390 +0200
+@@ -631 +631 @@
+-    67    0 lrwxrwxrwx   1 root     root           21 Mar  4 21:59 /var/tmp/test-find/simple/dangling-sym-link -> this-should-not-exist
++    67    0 lrwxrwxrwx   1 root root       21 Mar  4 21:59 ﾘ鄙
+@@ -642 +642 @@
+-    68    0 lrwxrwxrwx   1 root     root           10 Mar  4 21:59 /var/tmp/test-find/simple/working-sym-link -> plain-file
++    68    0 lrwxrwxrwx   1 root root       10 Mar  4 21:59 ﾘ鄙
+@@ -653 +653 @@
+-    69    0 lrwxrwxrwx   1 root     root           10 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-2 -> sym-link-1
++    69    0 lrwxrwxrwx   1 root root       10 Mar  4 21:59 ﾘ鄙
+@@ -664 +664 @@
+-    70    0 lrwxrwxrwx   1 root     root           10 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-3 -> sym-link-2
++    70    0 lrwxrwxrwx   1 root root       10 Mar  4 21:59 ﾘ鄙
+@@ -675 +675 @@
+-    71    0 lrwxrwxrwx   1 root     root           10 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-4 -> sym-link-3
++    71    0 lrwxrwxrwx   1 root root       10 Mar  4 21:59 ﾘ鄙
+@@ -686 +686 @@
+-    72    0 lrwxrwxrwx   1 root     root           10 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-5 -> sym-link-4
++    72    0 lrwxrwxrwx   1 root root       10 Mar  4 21:59 ﾘ鄙
+@@ -697 +697 @@
+-    73    0 lrwxrwxrwx   1 root     root           10 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-6 -> sym-link-5
++    73    0 lrwxrwxrwx   1 root root       10 Mar  4 21:59 ﾘ鄙
+@@ -708 +708 @@
+-    74    0 lrwxrwxrwx   1 root     root           10 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-7 -> sym-link-6
++    74    0 lrwxrwxrwx   1 root root       10 Mar  4 21:59 ﾘ鄙
+@@ -719 +719 @@
+-    75    0 lrwxrwxrwx   1 root     root           10 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-8 -> sym-link-7
++    75    0 lrwxrwxrwx   1 root root       10 Mar  4 21:59 ﾘ鄙
+@@ -730 +730 @@
+-    76    0 lrwxrwxrwx   1 root     root           10 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-9 -> sym-link-8
++    76    0 lrwxrwxrwx   1 root root       10 Mar  4 21:59 ﾘ鄙
+@@ -741 +741 @@
+-    77    0 lrwxrwxrwx   1 root     root           10 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-10 -> sym-link-9
++    77    0 lrwxrwxrwx   1 root root       10 Mar  4 21:59 ﾘ鄙
+@@ -752 +752 @@
+-    78    0 lrwxrwxrwx   1 root     root           11 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-11 -> sym-link-10
++    78    0 lrwxrwxrwx   1 root root       11 Mar  4 21:59 ﾘ鄙
+@@ -763 +763 @@
+-    79    0 lrwxrwxrwx   1 root     root           11 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-12 -> sym-link-11
++    79    0 lrwxrwxrwx   1 root root       11 Mar  4 21:59 ﾘ鄙
+@@ -774 +774 @@
+-    80    0 lrwxrwxrwx   1 root     root           11 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-13 -> sym-link-12
++    80    0 lrwxrwxrwx   1 root root       11 Mar  4 21:59 ﾘ鄙
+@@ -785 +785 @@
+-    81    0 lrwxrwxrwx   1 root     root           11 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-14 -> sym-link-13
++    81    0 lrwxrwxrwx   1 root root       11 Mar  4 21:59 ﾘ鄙
+@@ -796 +796 @@
+-    82    0 lrwxrwxrwx   1 root     root           11 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-15 -> sym-link-14
++    82    0 lrwxrwxrwx   1 root root       11 Mar  4 21:59 ﾘ鄙
+@@ -807 +807 @@
+-    83    0 lrwxrwxrwx   1 root     root           11 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-16 -> sym-link-15
++    83    0 lrwxrwxrwx   1 root root       11 Mar  4 21:59 ﾘ鄙
+@@ -818 +818 @@
+-    84    0 lrwxrwxrwx   1 root     root           11 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-17 -> sym-link-16
++    84    0 lrwxrwxrwx   1 root root       11 Mar  4 21:59 ﾘ鄙
+@@ -829 +829 @@
+-    85    0 lrwxrwxrwx   1 root     root           11 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-18 -> sym-link-17
++    85    0 lrwxrwxrwx   1 root root       11 Mar  4 21:59 ﾘ鄙
+@@ -840 +840 @@
+-    86    0 lrwxrwxrwx   1 root     root           11 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-19 -> sym-link-18
++    86    0 lrwxrwxrwx   1 root root       11 Mar  4 21:59 ﾘ鄙
+@@ -851 +851 @@
+-    87    0 lrwxrwxrwx   1 root     root           11 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-20 -> sym-link-19
++    87    0 lrwxrwxrwx   1 root root       11 Mar  4 21:59 ﾘ鄙
+@@ -862 +862 @@
+-    88    0 lrwxrwxrwx   1 root     root           11 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-21 -> sym-link-20
++    88    0 lrwxrwxrwx   1 root root       11 Mar  4 21:59 ﾘ鄙
+@@ -873 +873 @@
+-    89    0 lrwxrwxrwx   1 root     root           11 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-22 -> sym-link-21
++    89    0 lrwxrwxrwx   1 root root       11 Mar  4 21:59 ﾘ鄙
+@@ -884 +884 @@
+-    90    0 lrwxrwxrwx   1 root     root           10 Mar  4 21:59 /var/tmp/test-find/simple/sym-link-1 -> plain-file
++    90    0 lrwxrwxrwx   1 root root       10 Mar  4 21:59 ﾘ鄙
+@@ -895 +895 @@
+-    91    0 p--S------   1 root     root            0 Mar  4 21:59 /var/tmp/test-find/simple/named-pipe
++    91    0 f--S------   1 root root        0 Mar  4 21:59 /var/tmp/test-find/simple/named-pipe
+@@ -906 +906 @@
+-    92    0 b-----S---   1 root     root              Mar  4 21:59 /var/tmp/test-find/simple/block-device
++    92    0 b-----S---   1 root root        0 Mar  4 21:59 /var/tmp/test-find/simple/block-device
+@@ -917 +917 @@
+-    93    0 c--------T   1 root     root              Mar  4 21:59 /var/tmp/test-find/simple/char-device
++    93    0 c--------T   1 root root        0 Mar  4 21:59 /var/tmp/test-find/simple/char-device
+Successful Tests: 234458
+Failed     Tests: 1
+Total      Tests: 234459 / 234459
+----  snip  ----
+Naja, da hätten Sie ein paar Fehler mehr gefunden gehabt.
+
+
+Beurteilung
+~~~~~~~~~~~
+Sie erhalten auf dieses Beispiel 67 von 70 möglichen Punkten.

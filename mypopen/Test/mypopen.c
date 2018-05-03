@@ -23,12 +23,9 @@
 /*
 * --------------------------------------------------------------- defines --
 */
-#define SUCCESS 0
-#define ERROR 1
 /*
 * -------------------------------------------------------------- typedefs --
 */
-enum Bool { FALSE, TRUE };
 /*
 * ------------------------------------------------------------- functions --
 */
@@ -101,3 +98,14 @@ FILE* mypopen(const char* command, const char* type) {
 int mypclose(FILE* stream) {
 	pid_t wait_pid;
 }
+
+
+
+// =================================================================== eof ==
+
+// Local Variables:
+// mode: c
+// c-mode: k&r
+// c-basic-offset: 8
+// indent-tabs-mode: t
+// End:
