@@ -1,0 +1,6 @@
+Review Kommentare Gruppe 13 an Gruppe 0: Kommentare im File sind mit ### FB_Grp13: markiert.
+Die Implementierung der Funktionen popen/pclose entspricht leider nicht den Vorgaben, die wie folgt lauten:"Implementieren Sie diese beiden Funktionen in einer eigenen Übersetzungseinheit namens mypopen.c und exportieren Sie alle nötigen Informationen (z.B., die extern Deklarationen) in einem zugehörigen Headerfile namens mypopen.h" -> es gibt nur ein c.File.
+Der Testlauf von popentest funktioniert fehlerfrei.
+Die Erstellung entsprechend den Abgabeformalitäten ist leider nicht möglich, da diese nicht den Kriterien entspricht:
+/usr/local/bin/FHCheckCodeInspection.py: Directory "/home/ic17b065/.tmp/tmpqpVcd9/bsp2_grp0_ci_grp13" contains invalid entry (directory, symbolic link, ...) "doc"
+Im Ordner doc ist das Doxygen file, weshalb ich diesen Fehler ohne umfangreiche Änderungen nicht beheben kann.

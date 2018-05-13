@@ -1,0 +1,14 @@
+Reviewer:
+Niklas Hohenwarter (ic17b008)
+Sebastian Scheiber (ic17b084)
+Thomas Zeitlhofer (ic17b031)
+
+Positiv:
+- alle 30 Tests sind ohne Fehler durchgelaufen
+- übersichtlicher Aufbau
+- Fehlerbehandlung
+
+Negativ:
+- Variablen von Funktionen am Beginn definieren
+- wenig kommentiert
+- viel redundanter Code (IFs)
