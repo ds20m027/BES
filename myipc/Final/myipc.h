@@ -44,7 +44,7 @@
 *
 * \return EXIT_SUCCESS wenn kein Fehler auftritt, ansonsten EXIT_FAILURE
 */
-extern int start_ipc (int argc, const char const * argv [], const int type);
+extern int ipc_start (int argc, char * argv [], int type);
 
 #endif /* _MYIPC_H_ */
 

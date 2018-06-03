@@ -43,9 +43,9 @@
 *
 * \return EXIT_SUCCESS wenn kein Fehler auftritt, ansonsten EXIT_FAILURE
 */
-int main(int argc, const char const * argv[])
+int main(int argc, char * argv[])
 {
-	return start_ipc(argc, argv, TYPE_EMPFAENGER);
+	return ipc_start(argc, argv, TYPE_EMPFAENGER);
 }
 
 	// =================================================================== eof ==
